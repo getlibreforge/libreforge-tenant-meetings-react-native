@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Tenant Experience Manager</string>
+    <string name="txt_configuration_screen">Configuration Screen</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_exit">Exit</string>
+    <string name="btn_test_connection">Test Connection</string>
+    <string name="txt_pin">PIN</string>
+    <string name="txt_pin_description">PIN is 4 digit code to access this configuration screen</string>
+    <string name="lbl_enter">Enter</string>
+    <string name="lbl_re_enter">Re-Enter</string>
+    <string name="lbl_login">Login</string>
+    <string name="lbl_password">Password</string>
+    <string name="txt_credentials">Credentials</string>
+    <string name="txt_choose_experience">Choose Experience</string>
+    <string name="lbl_experience">Experience</string>
+    <string name="lbl_address">Address</string>
+    <string name="lbl_server">Server</string>
+    <string name="lbl_server_option1">Other</string>
+    <string name="lbl_server_option2">Other server</string>
+    <string name="lbl_experience_option1">Meeting Room</string>
+    <string name="lbl_experience_option2">Fitness Center</string>
+    <string name="lbl_experience_option3">Community Info Point</string>
+</resources>
