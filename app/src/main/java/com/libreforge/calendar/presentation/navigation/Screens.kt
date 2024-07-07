@@ -7,7 +7,6 @@ private const val ROUTE_CALENDAR = "Calendar"
 private const val ROUTE_NEWS = "News"
 private const val ROUTE_CONTACTS = "Contacts"
 private const val ROUTE_SCREEN_SAVER = "ScreenSaver"
-const val ARGUMENT_COUNTRY_DETAILS_OFFICIAL = "official"
 
 sealed class Screen(val route: String) {
     fun <T> addArgs(vararg args: T): String {

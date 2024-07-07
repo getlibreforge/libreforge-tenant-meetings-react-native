@@ -22,7 +22,6 @@ fun InactivityHandler(
 ) {
     var lastInteractionTime by remember { mutableLongStateOf(System.currentTimeMillis()) }
 
-    // LaunchedEffect to handle timer and navigation
     LaunchedEffect(key1 = Unit) {
         while (true) {
             delay(1000)
@@ -32,7 +31,6 @@ fun InactivityHandler(
         }
     }
 
-    // Modifier to detect user interactions
     Box(
         modifier = Modifier
             .fillMaxSize()

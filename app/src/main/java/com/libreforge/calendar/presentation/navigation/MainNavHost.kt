@@ -1,13 +1,9 @@
 package com.libreforge.calendar.presentation.navigation
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.animation.EnterTransition.Companion.None
-import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -20,9 +16,9 @@ import com.libreforge.calendar.presentation.screen.CalendarScreen
 import com.libreforge.calendar.presentation.screen.ConfigurationScreen
 import com.libreforge.calendar.presentation.screen.ContactsScreen
 import com.libreforge.calendar.presentation.screen.ErrorScreen
-import com.libreforge.calendar.presentation.ui.components.LoadingOverlay
 import com.libreforge.calendar.presentation.screen.NewsScreen
 import com.libreforge.calendar.presentation.screen.ScreenSaverScreen
+import com.libreforge.calendar.presentation.ui.components.LoadingOverlay
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
@@ -34,10 +30,6 @@ fun MainNavHost(navController: NavHostController, viewModelStoreOwner: ViewModel
     NavHost(
         navController = navController,
         startDestination = HomeScreens.Configuration.route
-//        enterTransition = { None },
-//        exitTransition = { ExitTransition.None },
-//        popEnterTransition = { None },
-//        popExitTransition = { ExitTransition.None },
     ) {
         composable(HomeScreens.Configuration.route,
             enterTransition = { fadeIn(animationSpec = tween(500)) },

@@ -18,7 +18,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -57,7 +56,6 @@ fun ConfigurationScreen(
 
     DisposableEffect(navController) {
         val observer = NavController.OnDestinationChangedListener { _, _, _ ->
-            // Reset state when navigation changes (if needed)
         }
         navController?.addOnDestinationChangedListener(observer)
         onDispose {
@@ -71,7 +69,6 @@ fun ConfigurationScreen(
         }
         is ResultState.Error -> {
             showLoadingOverlay = false
-            // Handle error state if needed
         }
         is ResultState.Success -> {
             showLoadingOverlay = false
@@ -126,7 +123,6 @@ private fun ConfigurationScreenState(
         stringResource(id = R.string.lbl_experience_option3)
     )
 
-    // Read from ViewModel
     val selectedServer = viewModel?.selectedServer ?: ""
     val selectedExperience = viewModel?.selectedExperience ?: ""
     val address = viewModel?.address ?: ""

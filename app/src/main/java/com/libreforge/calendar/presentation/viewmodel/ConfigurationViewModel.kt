@@ -28,7 +28,6 @@ class ConfigurationViewModel @Inject constructor(
     private val testConnectionUseCase: TestConnectionUseCase
 ) : ViewModel() {
 
-    // Example state variables to save
     var selectedServer by mutableStateOf("")
     var selectedExperience by mutableStateOf("")
     var address by mutableStateOf("")
@@ -86,12 +85,5 @@ class ConfigurationViewModel @Inject constructor(
                 }
             }
         }
-    }
-
-    companion object {
-        const val ERROR_CODE_UNKNOWN = 0
-        const val ERROR_MESSAGE_UNKNOWN = "Unknown error message"
-        const val ERROR_CODE_EMPTY_LIST = 1
-        const val ERROR_MESSAGE_EMPTY_LIST = "There are no results found for your request"
     }
 }
