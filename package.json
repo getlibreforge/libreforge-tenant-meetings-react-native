@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "@libreforge/libreforge-framework": "^1.0.73",
-    "@libreforge/libreforge-framework-react": "^1.0.82",
-    "@libreforge/librepackage-security-oauth2-google": "^1.0.15",
+    "@libreforge/libreforge-framework-react-native": "^1.0.4",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.10.0",
     "@rematch/core": "^2.2.0",

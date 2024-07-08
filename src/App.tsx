@@ -1,23 +1,40 @@
 import React from 'react';
-import {Provider as ReduxProvider} from 'react-redux';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from './screens/HomeScreen.tsx';
-import CountScreen from './screens/CountScreen.tsx';
-import {store} from './store.ts';
 
-const Stack = createNativeStackNavigator();
+import { RematchDispatch, init } from '@rematch/core';
+import { Provider, useDispatch as useReduxDispatch } from 'react-redux';
+import { app, InversifyContainerProviderContext, bindProviders as frameworkBindProviders } from '@libreforge/libreforge-framework';
+import pages from './config/application.json'
+import { Container } from 'inversify';
+import { bindProviders as componentBindProviders, Application } from '@libreforge/libreforge-framework-react-native';
+
+/* Redux Store configuration */
+const models = { app };
+export const storeConfig = {
+  models,
+  plugins: [],
+};
+
+export const useDispatch = () => {
+  return useReduxDispatch() as RematchDispatch<typeof models>;
+};
+
+// @ts-ignore
+const store = init(storeConfig);
+
+const container = new Container();
+frameworkBindProviders(container);
+componentBindProviders(container);
 
 function App(): React.JSX.Element {
   return (
-    <ReduxProvider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Count" component={CountScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </ReduxProvider>
+    <Provider store={store}>
+      <InversifyContainerProviderContext.Provider value={container}>
+        <Application
+            pages={pages}
+            routeToUrl={undefined}
+        />
+      </InversifyContainerProviderContext.Provider>
+    </Provider>
   );
 }
 

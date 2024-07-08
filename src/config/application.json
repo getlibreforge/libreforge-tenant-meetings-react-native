@@ -1,0 +1,41 @@
+{
+  "home": {
+    "root": {
+      "id": "root",
+      "parent": "root",
+      "type": "Box",
+      "children": [
+        "2558b6f6-0be2-4cd4-b0de-be08cc759040"
+      ],
+      "props": {},
+      "rules": {},
+      "actionGroup": {}
+    },
+    "2558b6f6-0be2-4cd4-b0de-be08cc759040": {
+      "id": "2558b6f6-0be2-4cd4-b0de-be08cc759040",
+      "props": {
+        "_x_name": "2558b6f6-0be2-4cd4-b0de-be08cc759040",
+        "children": "Log in",
+        "variant": "solid",
+        "size": "md",
+        "colorScheme": "blue",
+        "w": "125px",
+        "h": "48px",
+        " borderRadius": "12px"
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "a3587cfc-448c-4fa8-836b-b12c2cba8c61",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "RouteToPage",
+          "params": {
+            "url": "/login"
+          }
+        }
+      }
+    }
+  }
+}
