@@ -27,14 +27,14 @@ componentBindProviders(container);
 
 function App(): React.JSX.Element {
   return (
-    <Provider store={store}>
-      <InversifyContainerProviderContext.Provider value={container}>
-        <Application
-            pages={pages}
-            routeToUrl={undefined}
-        />
-      </InversifyContainerProviderContext.Provider>
-    </Provider>
+  <Provider store={store}>
+    <InversifyContainerProviderContext.Provider value={container}>
+      <Application
+          pages={pages}
+          routeToUrl={undefined}
+      />
+    </InversifyContainerProviderContext.Provider>
+  </Provider>
   );
 }
 

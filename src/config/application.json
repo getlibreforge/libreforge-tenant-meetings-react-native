@@ -5,37 +5,27 @@
       "parent": "root",
       "type": "Box",
       "children": [
-        "2558b6f6-0be2-4cd4-b0de-be08cc759040"
+        "14a3a490-0acb-4232-903e-e294c7fbab77"
       ],
       "props": {},
       "rules": {},
       "actionGroup": {}
     },
-    "2558b6f6-0be2-4cd4-b0de-be08cc759040": {
-      "id": "2558b6f6-0be2-4cd4-b0de-be08cc759040",
+    "14a3a490-0acb-4232-903e-e294c7fbab77": {
+      "id": "14a3a490-0acb-4232-903e-e294c7fbab77",
       "props": {
-        "_x_name": "2558b6f6-0be2-4cd4-b0de-be08cc759040",
-        "children": "Log in",
+        "_x_name": "14a3a490-0acb-4232-903e-e294c7fbab77",
+        "children": "Button text",
         "variant": "solid",
         "size": "md",
-        "colorScheme": "blue",
-        "w": "125px",
-        "h": "48px",
-        " borderRadius": "12px"
+        "colorScheme": "messenger"
       },
       "children": [],
       "type": "Button",
-      "parent": "a3587cfc-448c-4fa8-836b-b12c2cba8c61",
+      "parent": "root",
       "rootParentType": "Button",
       "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "RouteToPage",
-          "params": {
-            "url": "/login"
-          }
-        }
-      }
+      "actionGroup": {}
     }
   }
 }
