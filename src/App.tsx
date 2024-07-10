@@ -6,6 +6,8 @@ import { app, InversifyContainerProviderContext, bindProviders as frameworkBindP
 import pages from './config/application.json'
 import { Container } from 'inversify';
 import { bindProviders as componentBindProviders, Application } from '@libreforge/libreforge-framework-react-native';
+import { AbstractAction, SYMBOL_ACTION_PROVIDER } from '@libreforge/libreforge-framework';
+import { SimpleAlertAction } from './actions/SimpleAlertAction';
 
 /* Redux Store configuration */
 const models = { app };
@@ -22,6 +24,8 @@ export const useDispatch = () => {
 const store = init(storeConfig);
 
 const container = new Container();
+container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(SimpleAlertAction);
+
 frameworkBindProviders(container);
 componentBindProviders(container);
 

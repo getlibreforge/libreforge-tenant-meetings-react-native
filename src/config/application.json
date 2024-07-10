@@ -25,7 +25,13 @@
       "parent": "root",
       "rootParentType": "Button",
       "rules": {},
-      "actionGroup": {}
+      "actionGroup": {
+        "0": {
+          "action": "SimpleAlert",
+          "params": {
+          }
+        }
+      }
     }
   }
 }
