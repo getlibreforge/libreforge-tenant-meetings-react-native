@@ -15,10 +15,49 @@
       "id": "14a3a490-0acb-4232-903e-e294c7fbab77",
       "props": {
         "_x_name": "14a3a490-0acb-4232-903e-e294c7fbab77",
-        "children": "Button text",
+        "children": "Next Page",
         "variant": "solid",
         "size": "md",
-        "colorScheme": "messenger"
+        "colorScheme": "messenger",
+        "backgroundColor": "blue"
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "root",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "RNRouteToPage",
+          "params": {
+            "url": "/login"
+          }
+        }
+      }
+    }   
+  },
+  "login": {
+    "root": {
+      "id": "root",
+      "parent": "root",
+      "type": "Box",
+      "children": [
+        "c2596fb9-a536-4cbc-8ea3-d05c3d2e8867", "6e3cdc26-5dda-4b59-9171-6523db32f0b9"
+      ],
+      "props": {},
+      "rules": {},
+      "actionGroup": {}
+    },
+    "c2596fb9-a536-4cbc-8ea3-d05c3d2e8867": {
+      "id": "c2596fb9-a536-4cbc-8ea3-d05c3d2e8867",
+      "props": {
+        "_x_name": "c2596fb9-a536-4cbc-8ea3-d05c3d2e8867",
+        "children": "Alert",
+        "variant": "solid",
+        "size": "md",
+        "backgroundColor": "blue",
+        "color": "white",
+        "w": "50%"
       },
       "children": [],
       "type": "Button",
@@ -32,6 +71,30 @@
           }
         }
       }
-    }
+    },
+    "6e3cdc26-5dda-4b59-9171-6523db32f0b9": {
+      "id": "6e3cdc26-5dda-4b59-9171-6523db32f0b9",
+      "props": {
+        "_x_name": "6e3cdc26-5dda-4b59-9171-6523db32f0b9",
+        "children": "Prev Page",
+        "variant": "solid",
+        "size": "md",
+        "colorScheme": "messenger",
+        "backgroundColor": "black"
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "root",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "RNRouteToPage",
+          "params": {
+            "url": "/home"
+          }
+        }
+      }
+    } 
   }
 }

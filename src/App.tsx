@@ -8,6 +8,7 @@ import { Container } from 'inversify';
 import { bindProviders as componentBindProviders, Application } from '@libreforge/libreforge-framework-react-native';
 import { AbstractAction, SYMBOL_ACTION_PROVIDER } from '@libreforge/libreforge-framework';
 import { SimpleAlertAction } from './actions/SimpleAlertAction';
+import { RNRouteToPageAction } from './actions/RNRouteToPageAction';
 
 /* Redux Store configuration */
 const models = { app };
@@ -25,20 +26,21 @@ const store = init(storeConfig);
 
 const container = new Container();
 container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(SimpleAlertAction);
+container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(RNRouteToPageAction);
 
 frameworkBindProviders(container);
 componentBindProviders(container);
 
 function App(): React.JSX.Element {
   return (
-  <Provider store={store}>
-    <InversifyContainerProviderContext.Provider value={container}>
-      <Application
+    <Provider store={store}>
+      <InversifyContainerProviderContext.Provider value={container}>
+        <Application
           pages={pages}
           routeToUrl={undefined}
-      />
-    </InversifyContainerProviderContext.Provider>
-  </Provider>
+        />
+      </InversifyContainerProviderContext.Provider>
+    </Provider>
   );
 }
 
