@@ -42,7 +42,12 @@
       "parent": "root",
       "type": "Box",
       "children": [
-        "c2596fb9-a536-4cbc-8ea3-d05c3d2e8867", "6e3cdc26-5dda-4b59-9171-6523db32f0b9"
+        "c2596fb9-a536-4cbc-8ea3-d05c3d2e8867", 
+        "6e3cdc26-5dda-4b59-9171-6523db32f0b9",
+        "881b9d18-7c8c-492d-a78f-da6b7d3e759b",
+        "7a525660-8783-414c-84a9-971b9273a899",
+        "e76c3300-2c9e-4939-8737-2ec6f28134bc",
+        "aaca0b64-4fe5-4484-bb2d-9d735f5cd66e"
       ],
       "props": {},
       "rules": {},
@@ -95,6 +100,106 @@
           }
         }
       }
-    } 
-  }
+    },
+    "881b9d18-7c8c-492d-a78f-da6b7d3e759b": {
+      "id": "881b9d18-7c8c-492d-a78f-da6b7d3e759b",
+      "props": {
+        "_x_name": "881b9d18-7c8c-492d-a78f-da6b7d3e759b",
+        "children": "Exec Script - Save to storage",
+        "variant": "solid",
+        "size": "md",
+        "backgroundColor": "blue",
+        "color": "white",
+        "w": "50%"
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "root",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "ExecuteScript",
+          "params": {
+            "script": "await ctx.setValue(\"greetings\", \"Hey There\");"
+          }
+        }
+      }
+    },
+    "7a525660-8783-414c-84a9-971b9273a899": {
+      "id": "7a525660-8783-414c-84a9-971b9273a899",
+      "props": {
+        "_x_name": "7a525660-8783-414c-84a9-971b9273a899",
+        "children": "Get Page State",
+        "variant": "solid",
+        "size": "md",
+        "backgroundColor": "black",
+        "color": "white",
+        "w": "50%"
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "root",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "DebugState",
+          "params": {
+            "stateType": "page"
+          }
+        }
+      }
+    },         
+    "e76c3300-2c9e-4939-8737-2ec6f28134bc": {
+      "id": "e76c3300-2c9e-4939-8737-2ec6f28134bc",
+      "props": {
+        "_x_name": "e76c3300-2c9e-4939-8737-2ec6f28134bc",
+        "children": "Write to Secure Storage",
+        "variant": "solid",
+        "size": "md",
+        "backgroundColor": "green",
+        "color": "white",
+        "w": "50%"
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "root",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "ExecuteScript",
+          "params": {
+            "script": "await ctx.getExt(\"SecureStorage\").write(\"test\", \"testValue\")"
+          }
+        }
+      }
+    },
+    "aaca0b64-4fe5-4484-bb2d-9d735f5cd66e": {
+      "id": "aaca0b64-4fe5-4484-bb2d-9d735f5cd66e",
+      "props": {
+        "_x_name": "aaca0b64-4fe5-4484-bb2d-9d735f5cd66e",
+        "children": "Read from Secure Storage",
+        "variant": "solid",
+        "size": "md",
+        "backgroundColor": "black",
+        "color": "white",
+        "w": "50%"
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "root",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "ExecuteScript",
+          "params": {
+            "script": "alert(await ctx.getExt(\"SecureStorage\").read(\"test\"))"
+          }
+        }
+      }
+    }    
+  }    
 }
