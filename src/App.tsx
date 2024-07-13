@@ -10,6 +10,8 @@ import { AbstractAction, SYMBOL_ACTION_PROVIDER, AbstractScriptExtension, SYMBOL
 import { SimpleAlertAction } from './actions/SimpleAlertAction';
 import { RNRouteToPageAction } from './actions/RNRouteToPageAction';
 import { SecureStorageScriptExtension } from './script/ext/SecureStorageScriptExtension';
+import { ComponentProvider, SYMBOL_COMPONENT_PROVIDER } from '@libreforge/libreforge-framework';
+import { ContainerProvider } from './components/Container';
 
 /* Redux Store configuration */
 const models = { app };
@@ -29,6 +31,7 @@ const container = new Container();
 container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(SimpleAlertAction);
 container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(RNRouteToPageAction);
 container.bind<AbstractScriptExtension>(SYMBOL_SCRIPT_EXTENSION).to(SecureStorageScriptExtension);
+container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(ContainerProvider);
 
 frameworkBindProviders(container);
 componentBindProviders(container);

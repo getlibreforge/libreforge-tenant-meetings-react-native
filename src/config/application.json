@@ -5,12 +5,32 @@
       "parent": "root",
       "type": "Box",
       "children": [
-        "14a3a490-0acb-4232-903e-e294c7fbab77"
+        "cb0ce3a1-c389-4d43-8460-de469eb31df5"
       ],
       "props": {},
       "rules": {},
       "actionGroup": {}
     },
+    "cb0ce3a1-c389-4d43-8460-de469eb31df5": {
+      "id": "cb0ce3a1-c389-4d43-8460-de469eb31df5",
+      "props": {
+        "_x_name": "cb0ce3a1-c389-4d43-8460-de469eb31df5",
+        "backgroundColor": "white",
+        "backgroundImage": "https://getlibreforge.github.io/demo_files/background_home.png",
+        "w": "100%",
+        "h": "100vh",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover"
+      },
+      "children": [
+        "14a3a490-0acb-4232-903e-e294c7fbab77"
+      ],
+      "type": "Container",
+      "parent": "81d52c95-6870-412f-8188-1a328fac5bbd",
+      "rootParentType": "Container",
+      "rules": {},
+      "actionGroup": {}
+    },    
     "14a3a490-0acb-4232-903e-e294c7fbab77": {
       "id": "14a3a490-0acb-4232-903e-e294c7fbab77",
       "props": {
