@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { RematchDispatch, init } from '@rematch/core';
 import { Provider, useDispatch as useReduxDispatch } from 'react-redux';
@@ -10,8 +10,9 @@ import { AbstractAction, SYMBOL_ACTION_PROVIDER, AbstractScriptExtension, SYMBOL
 import { SimpleAlertAction } from './actions/SimpleAlertAction';
 import { RNRouteToPageAction } from './actions/RNRouteToPageAction';
 import { SecureStorageScriptExtension } from './script/ext/SecureStorageScriptExtension';
-import { ComponentProvider, SYMBOL_COMPONENT_PROVIDER } from '@libreforge/libreforge-framework';
+import { ComponentProvider, SYMBOL_COMPONENT_PROVIDER, NavigationCurrentPageProviderContext } from '@libreforge/libreforge-framework';
 import { ContainerProvider } from './components/Container';
+import { AutomaticActionProvider } from './components/Tools/PageActions/AutomaticAction';
 
 /* Redux Store configuration */
 const models = { app };
@@ -32,18 +33,24 @@ container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(SimpleAlertAction);
 container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(RNRouteToPageAction);
 container.bind<AbstractScriptExtension>(SYMBOL_SCRIPT_EXTENSION).to(SecureStorageScriptExtension);
 container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(ContainerProvider);
+container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(AutomaticActionProvider);
 
 frameworkBindProviders(container);
 componentBindProviders(container);
 
 function App(): React.JSX.Element {
+
+  const [currentRoute, setCurrentRoute] = useState<string | undefined>("home")
+
   return (
     <Provider store={store}>
       <InversifyContainerProviderContext.Provider value={container}>
-        <Application
-          pages={pages}
-          routeToUrl={undefined}
-        />
+        <NavigationCurrentPageProviderContext.Provider value={{ currentRoute, setCurrentRoute }}>
+          <Application
+            pages={pages}
+            routeToUrl={undefined}
+          />
+        </NavigationCurrentPageProviderContext.Provider>
       </InversifyContainerProviderContext.Provider>
     </Provider>
   );

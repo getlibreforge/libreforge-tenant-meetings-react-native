@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@libreforge/libreforge-framework-react-native": "^1.0.23",
+    "@libreforge/libreforge-framework-react-native": "^1.0.40",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.10.0",
     "@rematch/core": "^2.2.0",

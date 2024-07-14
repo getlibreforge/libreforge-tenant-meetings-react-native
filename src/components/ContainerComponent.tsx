@@ -34,13 +34,14 @@ const getStyles = (props: any) => StyleSheet.create({
 const ContainerComponent = forwardRef((props: ContainerComponentProps, ref) => {
   const { componentId, overridenComponentPageState, collectionRefIdx, children, pageComponents, pages, designMode, designModeInteractivityDisabled, wrapperComponent, wrapperContainer } = props;
   
-  const styles = getStyles(props);
+  const overridenProps: any = usePropsOverrideByComponentRef(props.componentId, props, props.designMode);
+  const styles = getStyles(overridenProps);
+
   const component = pageComponents[componentId];
-  const backgroundImage = component.props['backgroundImage'];
+  const backgroundImage = overridenProps['backgroundImage'];
 
   // const formErrorProps = { ...useFormControlError(type, children, pageComponents, designMode, props), pos: 'relative', ref };
   // const sharedErrorProps = useFormControlSharedError(type, children, pageComponents, designMode, formErrorProps);
-  // const overridenProps = usePropsOverrideByComponentRef(props.componentId, sharedErrorProps, props.designMode);
   // const cleanedProps = cleanupCustomComponentProps(overridenProps);  
 
   const childContent = children.map((key: string) => {
