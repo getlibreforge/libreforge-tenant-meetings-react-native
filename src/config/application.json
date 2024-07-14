@@ -42,12 +42,44 @@
         "aaca0b64-4fe5-4484-bb2d-9d735f5cd66e",
         "b09c3160-3067-4ffd-af8a-b50f2d6a000e",
         "a529158d-4366-4a16-bcc6-143ef145dd1a",
-        "eb7c6cea-1bd9-4828-8c59-48a36816f323"
+        "eb7c6cea-1bd9-4828-8c59-48a36816f323",
+        "61e5b71f-8f10-413f-9d45-e19cc22c57f3",
+        "d48ef28b-380a-4c38-a77c-38e2621b5237"
       ],
       "props": {},
       "rules": {},
       "actionGroup": {}
     },
+    "61e5b71f-8f10-413f-9d45-e19cc22c57f3": {
+      "id": "61e5b71f-8f10-413f-9d45-e19cc22c57f3",
+      "props": {
+        "_x_name": "apiKey",
+        "_x_onchange": "DefaultValueChange",
+        "backgroundColor": "whiteAlpha.500",
+        "placeholder": "API Key"
+      },
+      "children": [],
+      "type": "Input",
+      "parent": "root",
+      "rootParentType": "Input",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "d48ef28b-380a-4c38-a77c-38e2621b5237": {
+      "id": "d48ef28b-380a-4c38-a77c-38e2621b5237",
+      "props": {
+        "_x_name": "calendarId",
+        "_x_onchange": "DefaultValueChange",
+        "backgroundColor": "whiteAlpha.500",
+        "placeholder": "Google Calendar Id"
+      },
+      "children": [],
+      "type": "Input",
+      "parent": "root",
+      "rootParentType": "Input",
+      "rules": {},
+      "actionGroup": {}
+    },        
     "e76c3300-2c9e-4939-8737-2ec6f28134bc": {
       "id": "e76c3300-2c9e-4939-8737-2ec6f28134bc",
       "props": {

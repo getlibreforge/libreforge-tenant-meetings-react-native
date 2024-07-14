@@ -13,6 +13,7 @@ import { SecureStorageScriptExtension } from './script/ext/SecureStorageScriptEx
 import { ComponentProvider, SYMBOL_COMPONENT_PROVIDER, NavigationCurrentPageProviderContext } from '@libreforge/libreforge-framework';
 import { ContainerProvider } from './components/Container';
 import { AutomaticActionProvider } from './components/Tools/PageActions/AutomaticAction';
+import { InputProvider } from './components/Input';
 
 /* Redux Store configuration */
 const models = { app };
@@ -34,6 +35,7 @@ container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(RNRouteToPageAction);
 container.bind<AbstractScriptExtension>(SYMBOL_SCRIPT_EXTENSION).to(SecureStorageScriptExtension);
 container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(ContainerProvider);
 container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(AutomaticActionProvider);
+container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(InputProvider);
 
 frameworkBindProviders(container);
 componentBindProviders(container);
