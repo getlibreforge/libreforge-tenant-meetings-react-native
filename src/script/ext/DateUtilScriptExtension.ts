@@ -23,21 +23,13 @@ export class DateUtilScriptExtension extends AbstractScriptExtension {
   } 
   
   isNowPlusMinBetween(startDateTime: string, endDateTime: string, min: number): boolean {
+    
     const now = new Date();
     now.setTime(now.getTime() + min * 60 * 1000);
 
     const start = new Date(startDateTime);
     const end = new Date(endDateTime);
     
-    console.log(`Now - ${now}`);
-    console.log(`Start - ${start}`);
-    console.log(`End - ${end}`);
-
-    console.log(`Now > Start - ${now > start }`);
-    console.log(`Now < Start - ${now < start }`);
-    console.log(`Now > End - ${now > end }`);
-    console.log(`Now < End - ${now < end }`);
-
     return now >= start && now <= end;
   }   
 }
