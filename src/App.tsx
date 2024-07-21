@@ -14,6 +14,7 @@ import { ComponentProvider, SYMBOL_COMPONENT_PROVIDER, NavigationCurrentPageProv
 import { ContainerProvider } from './components/Container';
 import { AutomaticActionProvider } from './components/Tools/PageActions/AutomaticAction';
 import { InputProvider } from './components/Input';
+import { DateUtilScriptExtension } from './script/ext/DateUtilScriptExtension';
 
 /* Redux Store configuration */
 const models = { app };
@@ -32,10 +33,12 @@ const store = init(storeConfig);
 const container = new Container();
 container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(SimpleAlertAction);
 container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(RNRouteToPageAction);
-container.bind<AbstractScriptExtension>(SYMBOL_SCRIPT_EXTENSION).to(SecureStorageScriptExtension);
 container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(ContainerProvider);
 container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(AutomaticActionProvider);
 container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(InputProvider);
+
+container.bind<AbstractScriptExtension>(SYMBOL_SCRIPT_EXTENSION).to(SecureStorageScriptExtension);
+container.bind<AbstractScriptExtension>(SYMBOL_SCRIPT_EXTENSION).to(DateUtilScriptExtension);
 
 frameworkBindProviders(container);
 componentBindProviders(container);

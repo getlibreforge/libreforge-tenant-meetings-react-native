@@ -38,18 +38,86 @@
       "parent": "root",
       "type": "Box",
       "children": [   
-        "e76c3300-2c9e-4939-8737-2ec6f28134bc",
-        "aaca0b64-4fe5-4484-bb2d-9d735f5cd66e",
-        "b09c3160-3067-4ffd-af8a-b50f2d6a000e",
-        "a529158d-4366-4a16-bcc6-143ef145dd1a",
-        "eb7c6cea-1bd9-4828-8c59-48a36816f323",
         "61e5b71f-8f10-413f-9d45-e19cc22c57f3",
-        "d48ef28b-380a-4c38-a77c-38e2621b5237"
+        "d48ef28b-380a-4c38-a77c-38e2621b5237",
+        "65e17411-c15c-48f1-b1c5-dff402b23d11",
+        "39ca73f9-b84a-4082-98fe-2b5c1e17c1ac",
+        "e76c3300-2c9e-4939-8737-2ec6f28134bc",
+        "825079e6-3703-4a91-b1a6-d611006e149e"        
       ],
       "props": {},
       "rules": {},
       "actionGroup": {}
     },
+    "825079e6-3703-4a91-b1a6-d611006e149e": {
+      "id": "825079e6-3703-4a91-b1a6-d611006e149e",
+      "props": {
+        "_x_name": "825079e6-3703-4a91-b1a6-d611006e149e",
+        "children": "Back",
+        "variant": "solid",
+        "size": "md",
+        "colorScheme": "messenger",
+        "backgroundColor": "black"
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "root",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "RNRouteToPage",
+          "params": {
+            "url": "/dashboard"
+          }
+        }
+      }
+    },    
+    "e76c3300-2c9e-4939-8737-2ec6f28134bc": {
+      "id": "e76c3300-2c9e-4939-8737-2ec6f28134bc",
+      "props": {
+        "_x_name": "e76c3300-2c9e-4939-8737-2ec6f28134bc",
+        "children": "Save",
+        "variant": "solid",
+        "size": "md",
+        "backgroundColor": "green",
+        "color": "white",
+        "w": "50%"
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "root",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "ExecuteScript",
+          "params": {
+            "script": "const apiKey = await ctx.getValue(\"apiKey\"); await ctx.getExt(\"SecureStorage\").write(\"apiKey\", apiKey); const calendarId = await ctx.getValue(\"calendarId\"); await ctx.getExt(\"SecureStorage\").write(\"calendarId\", calendarId); const pinCode = await ctx.getValue(\"pinCode\"); if (!!pinCode) { await ctx.getExt(\"SecureStorage\").write(\"pinCode\", pinCode); } ctx.getRouter().navigate(\"dashboard\");"
+          }
+        }
+      }
+    },    
+    "65e17411-c15c-48f1-b1c5-dff402b23d11": {
+      "id": "65e17411-c15c-48f1-b1c5-dff402b23d11",
+      "props": {
+        "_x_name": "65e17411-c15c-48f1-b1c5-dff402b23d11",
+        "isJustOnce": true
+      },
+      "children": [],
+      "type": "Automatic Action",
+      "parent": "root",
+      "rootParentType": "Automatic Action",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "ExecuteScript",
+          "params": {
+            "script": "const apiKey = await ctx.getExt(\"SecureStorage\").read(\"apiKey\"); const calendarId = await ctx.getExt(\"SecureStorage\").read(\"calendarId\"); await ctx.setValue(\"apiKey\", apiKey); await ctx.setValue(\"calendarId\", calendarId);"
+          }
+        }
+      }
+    },     
     "61e5b71f-8f10-413f-9d45-e19cc22c57f3": {
       "id": "61e5b71f-8f10-413f-9d45-e19cc22c57f3",
       "props": {
@@ -79,131 +147,22 @@
       "rootParentType": "Input",
       "rules": {},
       "actionGroup": {}
-    },        
-    "e76c3300-2c9e-4939-8737-2ec6f28134bc": {
-      "id": "e76c3300-2c9e-4939-8737-2ec6f28134bc",
-      "props": {
-        "_x_name": "e76c3300-2c9e-4939-8737-2ec6f28134bc",
-        "children": "Write API Key",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "green",
-        "color": "white",
-        "w": "50%"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "ExecuteScript",
-          "params": {
-            "script": "await ctx.getExt(\"SecureStorage\").write(\"apiKey\", \"AIzaSyDTbaXrVQgbl_2S_rcOPCbYn19O7lditjg\")"
-          }
-        }
-      }
     },
-    "aaca0b64-4fe5-4484-bb2d-9d735f5cd66e": {
-      "id": "aaca0b64-4fe5-4484-bb2d-9d735f5cd66e",
+    "39ca73f9-b84a-4082-98fe-2b5c1e17c1ac": {
+      "id": "39ca73f9-b84a-4082-98fe-2b5c1e17c1ac",
       "props": {
-        "_x_name": "aaca0b64-4fe5-4484-bb2d-9d735f5cd66e",
-        "children": "Read API Key",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "black",
-        "color": "white",
-        "w": "50%"
+        "_x_name": "pinCode",
+        "_x_onchange": "DefaultValueChange",
+        "backgroundColor": "whiteAlpha.500",
+        "placeholder": "Setting Page Access Code"
       },
       "children": [],
-      "type": "Button",
+      "type": "Input",
       "parent": "root",
-      "rootParentType": "Button",
+      "rootParentType": "Input",
       "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "ExecuteScript",
-          "params": {
-            "script": "alert(await ctx.getExt(\"SecureStorage\").read(\"apiKey\"))"
-          }
-        }
-      }
-    },
-    "b09c3160-3067-4ffd-af8a-b50f2d6a000e": {
-      "id": "b09c3160-3067-4ffd-af8a-b50f2d6a000e",
-      "props": {
-        "_x_name": "b09c3160-3067-4ffd-af8a-b50f2d6a000e",
-        "children": "Write CalendarId",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "green",
-        "color": "white",
-        "w": "50%"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "ExecuteScript",
-          "params": {
-            "script": "await ctx.getExt(\"SecureStorage\").write(\"calendarId\", \"474334915f5d35299cb087b1a762c5baf04fd736e0d3e912d2b479f1fa23299f@group.calendar.google.com\")"
-          }
-        }
-      }
-    },
-    "a529158d-4366-4a16-bcc6-143ef145dd1a": {
-      "id": "a529158d-4366-4a16-bcc6-143ef145dd1a",
-      "props": {
-        "_x_name": "a529158d-4366-4a16-bcc6-143ef145dd1a",
-        "children": "Read Calendar Id",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "black",
-        "color": "white",
-        "w": "50%"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "ExecuteScript",
-          "params": {
-            "script": "alert(await ctx.getExt(\"SecureStorage\").read(\"calendarId\"))"
-          }
-        }
-      }
-    },
-    "eb7c6cea-1bd9-4828-8c59-48a36816f323": {
-      "id": "eb7c6cea-1bd9-4828-8c59-48a36816f323",
-      "props": {
-        "_x_name": "eb7c6cea-1bd9-4828-8c59-48a36816f323",
-        "children": "Go To Dashboard",
-        "variant": "solid",
-        "size": "md",
-        "colorScheme": "messenger",
-        "backgroundColor": "black"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "RNRouteToPage",
-          "params": {
-            "url": "/dashboard"
-          }
-        }
-      }
-    }            
+      "actionGroup": {}
+    }                
   },  
   "dashboard": {
     "root": {
@@ -257,7 +216,7 @@
         "4": {
           "action": "ExecuteScript",
           "params": {
-            "script": "const items = ctx.getInput().items; const result = []; for (let i=0; i<items.length; i++) { const item = items[i]; result.push({ id: item.id, start: item.start.dateTime, end: item.end.dateTime }) } if (result.length > 1) {   await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_occupied.png\"); } else {   await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_vacant.png\"); } return { \"events\": result }"
+            "script": "const items = ctx.getInput().items; let isBusy = false; let isBusyShortly = false; const result = []; for (let i=0; i<items.length; i++) { const item = items[i]; result.push({ id: item.id, start: item.start.dateTime, end: item.end.dateTime }); isBusy = isBusy || ctx.getExt(\"DateUtil\").isNowBetween(item.start.dateTime, item.end.dateTime); isBusyShortly = isBusyShortly || ctx.getExt(\"DateUtil\").isNowPlusMinBetween(item.start.dateTime, item.end.dateTime, 30); } if (true === isBusy) { await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_occupied.png\"); } else if (true === isBusyShortly) { await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_soon.png\"); } else { await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_vacant.png\"); } return { \"events\": result }"
           }
         },
         "5": {
@@ -280,11 +239,7 @@
         "backgroundSize": "cover"
       },
       "children": [
-        "14a3a490-0acb-4232-903e-e294c7fbab77",
-        "01899a7c-c8ea-4c46-b110-774be1dc3408",
-        "da911f71-0a8e-4548-8581-65ace8c47383",
-        "86cc413e-5221-4ebf-891d-885c195bc3f3",
-        "307973e5-8856-4143-8cbc-53e8eec35230"
+        "14a3a490-0acb-4232-903e-e294c7fbab77"
       ],
       "type": "Container",
       "parent": "81d52c95-6870-412f-8188-1a328fac5bbd",
@@ -296,7 +251,7 @@
       "id": "14a3a490-0acb-4232-903e-e294c7fbab77",
       "props": {
         "_x_name": "14a3a490-0acb-4232-903e-e294c7fbab77",
-        "children": "Next Page",
+        "children": "Go To Settings",
         "variant": "solid",
         "size": "md",
         "colorScheme": "messenger",
@@ -315,106 +270,6 @@
           }
         }
       }
-    },
-    "01899a7c-c8ea-4c46-b110-774be1dc3408": {
-      "id": "01899a7c-c8ea-4c46-b110-774be1dc3408",
-      "props": {
-        "_x_name": "01899a7c-c8ea-4c46-b110-774be1dc3408",
-        "children": "Set Occupied",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "red",
-        "color": "white",
-        "w": "50%"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "ExecuteScript",
-          "params": {
-            "script": "await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_occupied.png\");"
-          }
-        }
-      }
-    }, 
-    "da911f71-0a8e-4548-8581-65ace8c47383": {
-      "id": "da911f71-0a8e-4548-8581-65ace8c47383",
-      "props": {
-        "_x_name": "da911f71-0a8e-4548-8581-65ace8c47383",
-        "children": "Set Coming Soon",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "orange",
-        "color": "white",
-        "w": "50%"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "ExecuteScript",
-          "params": {
-            "script": "await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_soon.png\");"
-          }
-        }
-      }
-    },
-    "86cc413e-5221-4ebf-891d-885c195bc3f3": {
-      "id": "86cc413e-5221-4ebf-891d-885c195bc3f3",
-      "props": {
-        "_x_name": "86cc413e-5221-4ebf-891d-885c195bc3f3",
-        "children": "Set Vacant",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "green",
-        "color": "white",
-        "w": "50%"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "ExecuteScript",
-          "params": {
-            "script": "await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_vacant.png\");"
-          }
-        }
-      }
-    },
-    "307973e5-8856-4143-8cbc-53e8eec35230": {
-      "id": "307973e5-8856-4143-8cbc-53e8eec35230",
-      "props": {
-        "_x_name": "307973e5-8856-4143-8cbc-53e8eec35230",
-        "children": "Get Page State",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "black",
-        "color": "white",
-        "w": "50%"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "DebugState",
-          "params": {
-            "stateType": "page"
-          }
-        }
-      }
     }                       
   },
   "login": {
@@ -423,45 +278,19 @@
       "parent": "root",
       "type": "Box",
       "children": [
-        "c2596fb9-a536-4cbc-8ea3-d05c3d2e8867", 
-        "6e3cdc26-5dda-4b59-9171-6523db32f0b9",
-        "65e9c51d-17d1-4684-884e-48f08d95ef4b",
-        "881b9d18-7c8c-492d-a78f-da6b7d3e759b",
-        "7a525660-8783-414c-84a9-971b9273a899"
+        "32f225c6-1914-400c-91ab-c53d56a9b0e0",
+        "d29a1e67-44a2-4122-8158-60951e8b756e",
+        "3570cc56-6e64-4f84-ba6a-e4bff2d85243"
       ],
       "props": {},
       "rules": {},
       "actionGroup": {}
     },
-    "c2596fb9-a536-4cbc-8ea3-d05c3d2e8867": {
-      "id": "c2596fb9-a536-4cbc-8ea3-d05c3d2e8867",
+    "3570cc56-6e64-4f84-ba6a-e4bff2d85243": {
+      "id": "3570cc56-6e64-4f84-ba6a-e4bff2d85243",
       "props": {
-        "_x_name": "c2596fb9-a536-4cbc-8ea3-d05c3d2e8867",
-        "children": "Alert",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "blue",
-        "color": "white",
-        "w": "50%"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "SimpleAlert",
-          "params": {
-          }
-        }
-      }
-    },
-    "6e3cdc26-5dda-4b59-9171-6523db32f0b9": {
-      "id": "6e3cdc26-5dda-4b59-9171-6523db32f0b9",
-      "props": {
-        "_x_name": "6e3cdc26-5dda-4b59-9171-6523db32f0b9",
-        "children": "Go To Dashboard",
+        "_x_name": "3570cc56-6e64-4f84-ba6a-e4bff2d85243",
+        "children": "Back",
         "variant": "solid",
         "size": "md",
         "colorScheme": "messenger",
@@ -480,39 +309,15 @@
           }
         }
       }
-    },
-    "65e9c51d-17d1-4684-884e-48f08d95ef4b": {
-      "id": "65e9c51d-17d1-4684-884e-48f08d95ef4b",
+    },     
+    "d29a1e67-44a2-4122-8158-60951e8b756e": {
+      "id": "d29a1e67-44a2-4122-8158-60951e8b756e",
       "props": {
-        "_x_name": "65e9c51d-17d1-4684-884e-48f08d95ef4b",
-        "children": "Go To Settings",
+        "_x_name": "d29a1e67-44a2-4122-8158-60951e8b756e",
+        "children": "Login",
         "variant": "solid",
         "size": "md",
-        "colorScheme": "messenger",
-        "backgroundColor": "black"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "RNRouteToPage",
-          "params": {
-            "url": "/settings"
-          }
-        }
-      }
-    },
-    "881b9d18-7c8c-492d-a78f-da6b7d3e759b": {
-      "id": "881b9d18-7c8c-492d-a78f-da6b7d3e759b",
-      "props": {
-        "_x_name": "881b9d18-7c8c-492d-a78f-da6b7d3e759b",
-        "children": "Exec Script - Save to storage",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "blue",
+        "backgroundColor": "green",
         "color": "white",
         "w": "50%"
       },
@@ -525,35 +330,25 @@
         "0": {
           "action": "ExecuteScript",
           "params": {
-            "script": "await ctx.setValue(\"greetings\", \"Hey There\");"
+            "script": "const credentials = await ctx.getValue(\"credentials\"); await ctx.setValue(\"credentials\", undefined); const pinCode = await ctx.getExt(\"SecureStorage\").read(\"pinCode\"); if (!!pinCode && pinCode === credentials) { ctx.getRouter().navigate(\"settings\"); } else { alert(\"Invalid Credentials\"); } "
           }
         }
       }
-    },
-    "7a525660-8783-414c-84a9-971b9273a899": {
-      "id": "7a525660-8783-414c-84a9-971b9273a899",
+    },        
+    "32f225c6-1914-400c-91ab-c53d56a9b0e0": {
+      "id": "32f225c6-1914-400c-91ab-c53d56a9b0e0",
       "props": {
-        "_x_name": "7a525660-8783-414c-84a9-971b9273a899",
-        "children": "Get Page State",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "black",
-        "color": "white",
-        "w": "50%"
+        "_x_name": "credentials",
+        "_x_onchange": "DefaultValueChange",
+        "backgroundColor": "whiteAlpha.500",
+        "placeholder": "PIN code"
       },
       "children": [],
-      "type": "Button",
+      "type": "Input",
       "parent": "root",
-      "rootParentType": "Button",
+      "rootParentType": "Input",
       "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "DebugState",
-          "params": {
-            "stateType": "page"
-          }
-        }
-      }
-    }    
+      "actionGroup": {}
+    }        
   }    
 }

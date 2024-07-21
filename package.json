@@ -1,6 +1,6 @@
 {
   "name": "libreforge",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@libreforge/libreforge-framework-react-native": "^1.0.41",
+    "@libreforge/libreforge-framework-react-native": "^1.0.45",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.10.0",
     "@rematch/core": "^2.2.0",

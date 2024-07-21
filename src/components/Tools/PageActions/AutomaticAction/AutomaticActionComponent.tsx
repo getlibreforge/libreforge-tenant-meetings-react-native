@@ -4,6 +4,7 @@ import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import { ActionExecutionContext, InversifyContainerProviderContext, getCurrentPageState, getSharedState, 
   ActionVariableEvaluationService, SYMBOL_ACTION_VARIABLE_EVAL_SERVICE, useActions, useDispatch } from '@libreforge/libreforge-framework';
 import { useNavigation } from '@react-navigation/native';
+import { Snackbar } from '@libreforge/libreforge-framework-react-native';
 
 const AutomaticActionExecutorComponent = forwardRef((props: { componentId: string, 
   designMode: boolean, pageComponents: IComponents, pages: IPages,
@@ -16,7 +17,7 @@ const AutomaticActionExecutorComponent = forwardRef((props: { componentId: strin
 
   const dispatch = useDispatch();
   const router = useNavigation();
-  // const snackbar = useSnackbar();
+  const snackbar = new Snackbar();
   const currentPageState = useSelector(getCurrentPageState);
   const sharedState = useSelector(getSharedState);
   const container = useContext(InversifyContainerProviderContext);
@@ -43,7 +44,7 @@ const AutomaticActionExecutorComponent = forwardRef((props: { componentId: strin
 
             const actionExecutionContext: ActionExecutionContext = {
               componentId: props.componentId, args: item.args, pageComponents: props.pageComponents, 
-              currentPageState, sharedState, dispatch, snackbar: undefined, router, container, collectionRefIdx: undefined, 
+              currentPageState, sharedState, dispatch, snackbar, router, container, collectionRefIdx: undefined, 
               prevExecutionState: lastActionResult.result, variableEvalService
             }
 
@@ -51,6 +52,7 @@ const AutomaticActionExecutorComponent = forwardRef((props: { componentId: strin
               lastActionResult = await item.action.execute(actionExecutionContext);
             } catch (error) {
               console.log(error);
+              snackbar.error("Action cannot be performed");
               return;
             }
           }           
