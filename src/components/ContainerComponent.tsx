@@ -3,6 +3,7 @@ import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps, usePropsOverrideByComponentRef } from '@libreforge/libreforge-framework';
 import ChildComponentRenderer from '@libreforge/libreforge-framework/dist/components/ChildComponentRenderer';
 import { Dimensions, ImageBackground, StyleSheet, View } from 'react-native';
+import { LocalImageManager } from '../service/LocalImageManager';
 
 type ContainerComponentProps = {
   componentId: string;
@@ -51,12 +52,14 @@ const ContainerComponent = forwardRef((props: ContainerComponentProps, ref) => {
         pageComponents={pageComponents} collectionRefIdx={collectionRefIdx} 
         pages={pages} wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer} />        
     )
-  })
+  });
+
+  const localImageManager = new LocalImageManager();
 
   return (
     <View style={styles.containerRow}>
       {!!backgroundImage && (
-        <ImageBackground source={{ uri: backgroundImage }} resizeMode="cover" style={styles.image}>
+        <ImageBackground source={ localImageManager.getImageSource(backgroundImage) } resizeMode="cover" style={styles.image}>
           { childContent }
         </ImageBackground>
       )}
