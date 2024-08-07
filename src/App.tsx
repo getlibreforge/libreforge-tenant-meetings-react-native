@@ -15,6 +15,9 @@ import { ContainerProvider } from './components/Container';
 import { AutomaticActionProvider } from './components/Tools/PageActions/AutomaticAction';
 import { InputProvider } from './components/Input';
 import { DateUtilScriptExtension } from './script/ext/DateUtilScriptExtension';
+import { TextProvider } from './components/Label/Text/TextProvider';
+import { ImageProvider } from './components/Image';
+import KeepAwake from 'react-native-keep-awake';
 
 /* Redux Store configuration */
 const models = { app };
@@ -36,6 +39,8 @@ container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(RNRouteToPageAction);
 container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(ContainerProvider);
 container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(AutomaticActionProvider);
 container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(InputProvider);
+container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(TextProvider);
+container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(ImageProvider);
 
 container.bind<AbstractScriptExtension>(SYMBOL_SCRIPT_EXTENSION).to(SecureStorageScriptExtension);
 container.bind<AbstractScriptExtension>(SYMBOL_SCRIPT_EXTENSION).to(DateUtilScriptExtension);
@@ -46,6 +51,7 @@ componentBindProviders(container);
 function App(): React.JSX.Element {
 
   const [currentRoute, setCurrentRoute] = useState<string | undefined>("home")
+  KeepAwake.activate();
 
   return (
     <Provider store={store}>

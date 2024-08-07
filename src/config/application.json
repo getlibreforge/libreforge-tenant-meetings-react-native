@@ -26,7 +26,7 @@
         "0": {
           "action": "ExecuteScript",
           "params": {
-            "script": "const apiKey = await ctx.getExt(\"SecureStorage\").read(\"apiKey\"); const calendarId = await ctx.getExt(\"SecureStorage\").read(\"calendarId\"); if (!apiKey || !calendarId) { ctx.getRouter().navigate(\"settings\"); } else { ctx.getRouter().navigate(\"dashboard\"); } "
+            "script": "const apiKey = await ctx.getExt(\"SecureStorage\").read(\"apiKey\"); const calendarId = await ctx.getExt(\"SecureStorage\").read(\"calendarId\"); if (!apiKey || !calendarId) { ctx.getRouter().navigate(\"settings\"); } else { ctx.getRouter().navigate(\"dashboard\"); }"
           }
         }
       }
@@ -37,56 +37,119 @@
       "id": "root",
       "parent": "root",
       "type": "Box",
-      "children": [   
-        "61e5b71f-8f10-413f-9d45-e19cc22c57f3",
-        "d48ef28b-380a-4c38-a77c-38e2621b5237",
-        "65e17411-c15c-48f1-b1c5-dff402b23d11",
-        "39ca73f9-b84a-4082-98fe-2b5c1e17c1ac",
-        "e76c3300-2c9e-4939-8737-2ec6f28134bc",
-        "825079e6-3703-4a91-b1a6-d611006e149e"        
+      "children": [
+        "35b9658b-c164-4526-ac39-6a132d2ba0ae"
       ],
       "props": {},
       "rules": {},
       "actionGroup": {}
     },
-    "825079e6-3703-4a91-b1a6-d611006e149e": {
-      "id": "825079e6-3703-4a91-b1a6-d611006e149e",
+    "35b9658b-c164-4526-ac39-6a132d2ba0ae": {
+      "id": "35b9658b-c164-4526-ac39-6a132d2ba0ae",
       "props": {
-        "_x_name": "825079e6-3703-4a91-b1a6-d611006e149e",
-        "children": "Back",
-        "variant": "solid",
-        "size": "md",
-        "colorScheme": "messenger",
-        "backgroundColor": "black"
+        "_x_name": "35b9658b-c164-4526-ac39-6a132d2ba0ae",
+        "flex": 1,
+        "backgroundColor": "#F5F5F5",
+        "alignItems": "center",
+        "justifyContent": "flex-start"
       },
-      "children": [],
-      "type": "Button",
+      "children": [
+        "0e91aab7-65b8-4a17-990e-e818859351b6",
+        "5c5ef660-49fd-4923-8586-de01df2ff5e0",
+        "3eaf7f83-e569-4b9d-9d2f-8b76143bc8a6",
+        "debc0f88-5ebd-4a36-86ff-035b7f5ddee9",
+        "67a004e5-68af-4a3d-90ab-6a1be8af1f94",
+        "ea45fd84-a2a2-4c91-b287-e9ae25102b41",
+        "65e17411-c15c-48f1-b1c5-dff402b23d11"
+      ],
+      "type": "Container",
       "parent": "root",
-      "rootParentType": "Button",
+      "rootParentType": "Container",
       "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "RNRouteToPage",
-          "params": {
-            "url": "/dashboard"
-          }
-        }
-      }
-    },    
-    "e76c3300-2c9e-4939-8737-2ec6f28134bc": {
-      "id": "e76c3300-2c9e-4939-8737-2ec6f28134bc",
+      "actionGroup": {}
+    },
+    "0e91aab7-65b8-4a17-990e-e818859351b6": {
+      "id": "0e91aab7-65b8-4a17-990e-e818859351b6",
       "props": {
-        "_x_name": "e76c3300-2c9e-4939-8737-2ec6f28134bc",
+        "_x_name": "0e91aab7-65b8-4a17-990e-e818859351b6",
+        "children": "Settings",
+        "fontSize": 50,
+        "marginTop": 100,
+        "fontWeight": "bold",
+        "color": "#1E232C"
+      },
+      "children": [],
+      "type": "Text",
+      "parent": "35b9658b-c164-4526-ac39-6a132d2ba0ae",
+      "rootParentType": "Text",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "5c5ef660-49fd-4923-8586-de01df2ff5e0": {
+      "id": "5c5ef660-49fd-4923-8586-de01df2ff5e0",
+      "props": {
+        "_x_name": "apiKey",
+        "_x_onchange": "DefaultValueChange",
+        "backgroundColor": "whiteAlpha.500",
+        "placeholder": "Google API Key",
+        "marginTop": 100,
+        "width": "80%",
+        "height": 60
+      },
+      "children": [],
+      "type": "Input",
+      "parent": "35b9658b-c164-4526-ac39-6a132d2ba0ae",
+      "rootParentType": "Input",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "3eaf7f83-e569-4b9d-9d2f-8b76143bc8a6": {
+      "id": "3eaf7f83-e569-4b9d-9d2f-8b76143bc8a6",
+      "props": {
+        "_x_name": "calendarId",
+        "_x_onchange": "DefaultValueChange",
+        "backgroundColor": "whiteAlpha.500",
+        "placeholder": "Google Calendar Id",
+        "width": "80%",
+        "height": 60
+      },
+      "children": [],
+      "type": "Input",
+      "parent": "35b9658b-c164-4526-ac39-6a132d2ba0ae",
+      "rootParentType": "Input",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "debc0f88-5ebd-4a36-86ff-035b7f5ddee9": {
+      "id": "debc0f88-5ebd-4a36-86ff-035b7f5ddee9",
+      "props": {
+        "_x_name": "pinCode",
+        "_x_onchange": "DefaultValueChange",
+        "backgroundColor": "whiteAlpha.500",
+        "placeholder": "Setting Page Access Code",
+        "width": "80%",
+        "height": 60
+      },
+      "children": [],
+      "type": "Input",
+      "parent": "35b9658b-c164-4526-ac39-6a132d2ba0ae",
+      "rootParentType": "Input",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "67a004e5-68af-4a3d-90ab-6a1be8af1f94": {
+      "id": "67a004e5-68af-4a3d-90ab-6a1be8af1f94",
+      "props": {
+        "_x_name": "67a004e5-68af-4a3d-90ab-6a1be8af1f94",
         "children": "Save",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "green",
         "color": "white",
-        "w": "50%"
+        "backgroundColor": "#1E232C",
+        "width": "80%",
+        "height": 60
       },
       "children": [],
       "type": "Button",
-      "parent": "root",
+      "parent": "35b9658b-c164-4526-ac39-6a132d2ba0ae",
       "rootParentType": "Button",
       "rules": {},
       "actionGroup": {
@@ -97,7 +160,31 @@
           }
         }
       }
-    },    
+    },
+    "ea45fd84-a2a2-4c91-b287-e9ae25102b41": {
+      "id": "ea45fd84-a2a2-4c91-b287-e9ae25102b41",
+      "props": {
+        "_x_name": "ea45fd84-a2a2-4c91-b287-e9ae25102b41",
+        "children": "Back",
+        "color": "black",
+        "width": "80%",
+        "height": 60,
+        "backgroundColor": "#F5F5F5"
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "35b9658b-c164-4526-ac39-6a132d2ba0ae",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "RNRouteToPage",
+          "params": {
+            "url": "/dashboard"
+          }
+        }
+      }
+    },
     "65e17411-c15c-48f1-b1c5-dff402b23d11": {
       "id": "65e17411-c15c-48f1-b1c5-dff402b23d11",
       "props": {
@@ -117,52 +204,7 @@
           }
         }
       }
-    },     
-    "61e5b71f-8f10-413f-9d45-e19cc22c57f3": {
-      "id": "61e5b71f-8f10-413f-9d45-e19cc22c57f3",
-      "props": {
-        "_x_name": "apiKey",
-        "_x_onchange": "DefaultValueChange",
-        "backgroundColor": "whiteAlpha.500",
-        "placeholder": "API Key"
-      },
-      "children": [],
-      "type": "Input",
-      "parent": "root",
-      "rootParentType": "Input",
-      "rules": {},
-      "actionGroup": {}
-    },
-    "d48ef28b-380a-4c38-a77c-38e2621b5237": {
-      "id": "d48ef28b-380a-4c38-a77c-38e2621b5237",
-      "props": {
-        "_x_name": "calendarId",
-        "_x_onchange": "DefaultValueChange",
-        "backgroundColor": "whiteAlpha.500",
-        "placeholder": "Google Calendar Id"
-      },
-      "children": [],
-      "type": "Input",
-      "parent": "root",
-      "rootParentType": "Input",
-      "rules": {},
-      "actionGroup": {}
-    },
-    "39ca73f9-b84a-4082-98fe-2b5c1e17c1ac": {
-      "id": "39ca73f9-b84a-4082-98fe-2b5c1e17c1ac",
-      "props": {
-        "_x_name": "pinCode",
-        "_x_onchange": "DefaultValueChange",
-        "backgroundColor": "whiteAlpha.500",
-        "placeholder": "Setting Page Access Code"
-      },
-      "children": [],
-      "type": "Input",
-      "parent": "root",
-      "rootParentType": "Input",
-      "rules": {},
-      "actionGroup": {}
-    }                
+    }
   },  
   "dashboard": {
     "root": {
@@ -216,7 +258,7 @@
         "4": {
           "action": "ExecuteScript",
           "params": {
-            "script": "const items = ctx.getInput().items; let isBusy = false; let isBusyShortly = false; const result = []; for (let i=0; i<items.length; i++) { const item = items[i]; result.push({ id: item.id, start: item.start.dateTime, end: item.end.dateTime }); isBusy = isBusy || ctx.getExt(\"DateUtil\").isNowBetween(item.start.dateTime, item.end.dateTime); isBusyShortly = isBusyShortly || ctx.getExt(\"DateUtil\").isNowPlusMinBetween(item.start.dateTime, item.end.dateTime, 30); } if (true === isBusy) { await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_occupied.png\"); } else if (true === isBusyShortly) { await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_soon.png\"); } else { await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_vacant.png\"); } return { \"events\": result }"
+            "script": "const items = ctx.getInput().items; let isBusy = false; const result = []; for (let i=0; i<items.length; i++) { const item = items[i]; result.push({ id: item.id, start: item.start.dateTime, end: item.end.dateTime }); isBusy = isBusy || ctx.getExt(\"DateUtil\").isNowBetween(item.start.dateTime, item.end.dateTime); } if (true === isBusy) { await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_occupied.png\"); await ctx.setPropValue(\"99ca9c12-5846-4e99-9cd5-2610d8d7f315\", \"src\", \"label_occupied.png\"); await ctx.setPropValue(\"64cba937-adec-452a-91fb-be195d6af7ca\", \"backgroundColor\", \"#A83434\"); } else { await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_vacant.png\"); await ctx.setPropValue(\"99ca9c12-5846-4e99-9cd5-2610d8d7f315\", \"src\", \"label_vacant.png\"); await ctx.setPropValue(\"64cba937-adec-452a-91fb-be195d6af7ca\", \"backgroundColor\", \"#35A177\"); } return { \"events\": result }"
           }
         },
         "5": {
@@ -239,28 +281,49 @@
         "backgroundSize": "cover"
       },
       "children": [
-        "14a3a490-0acb-4232-903e-e294c7fbab77"
+        "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
+        "bec88cce-5736-4717-ae13-e2255b0f6971",
+        "64cba937-adec-452a-91fb-be195d6af7ca"
       ],
       "type": "Container",
       "parent": "81d52c95-6870-412f-8188-1a328fac5bbd",
       "rootParentType": "Container",
       "rules": {},
       "actionGroup": {}
-    },    
-    "14a3a490-0acb-4232-903e-e294c7fbab77": {
-      "id": "14a3a490-0acb-4232-903e-e294c7fbab77",
+    }, 
+    "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c": {
+      "id": "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
       "props": {
-        "_x_name": "14a3a490-0acb-4232-903e-e294c7fbab77",
-        "children": "Go To Settings",
-        "variant": "solid",
-        "size": "md",
-        "colorScheme": "messenger",
-        "backgroundColor": "blue"
+        "_x_name": "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
+        "flex": 0.15,
+        "flexDirection": "row",
+        "justifyContent": "space-between"
       },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
+      "children": [
+        "82da913b-bc38-4ca0-ad60-1f95cb5c474b",
+        "065dcdae-3c66-4614-8ada-ece39f746e38"
+      ],
+      "type": "Container",
+      "parent": "cb0ce3a1-c389-4d43-8460-de469eb31df5",
+      "rootParentType": "Container",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "065dcdae-3c66-4614-8ada-ece39f746e38": {
+      "id": "065dcdae-3c66-4614-8ada-ece39f746e38",
+      "props": {
+        "_x_name": "065dcdae-3c66-4614-8ada-ece39f746e38",
+        "src": "settings.png",
+        "marginRight": 60,
+        "marginTop": 80,
+        "width": 50,
+        "height": 50
+      },
+      "children": [
+      ],
+      "type": "Image",
+      "parent": "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
+      "rootParentType": "Container",
       "rules": {},
       "actionGroup": {
         "0": {
@@ -270,7 +333,177 @@
           }
         }
       }
-    }                       
+    },    
+    "82da913b-bc38-4ca0-ad60-1f95cb5c474b": {
+      "id": "82da913b-bc38-4ca0-ad60-1f95cb5c474b",
+      "props": {
+        "_x_name": "82da913b-bc38-4ca0-ad60-1f95cb5c474b",
+        "children": "Meeting Room",
+        "fontSize": 32,
+        "marginLeft": 60,
+        "marginTop": 80
+      },
+      "children": [],
+      "type": "Text",
+      "parent": "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
+      "rootParentType": "Text",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "bec88cce-5736-4717-ae13-e2255b0f6971": {
+      "id": "bec88cce-5736-4717-ae13-e2255b0f6971",
+      "props": {
+        "_x_name": "bec88cce-5736-4717-ae13-e2255b0f6971",
+        "flex": 0.55
+      },
+      "children": [
+        "99ca9c12-5846-4e99-9cd5-2610d8d7f315",
+        "353e3c5c-0ed6-42ba-b552-4d6d74d64c50",
+        "2a86b1e8-4ab8-4fd6-8510-4ed041249387"
+      ],
+      "type": "Container",
+      "parent": "cb0ce3a1-c389-4d43-8460-de469eb31df5",
+      "rootParentType": "Container",
+      "rules": {},
+      "actionGroup": {}
+    }, 
+    "99ca9c12-5846-4e99-9cd5-2610d8d7f315": {
+      "id": "99ca9c12-5846-4e99-9cd5-2610d8d7f315",
+      "props": {
+        "_x_name": "99ca9c12-5846-4e99-9cd5-2610d8d7f315",
+        "src": "label_vacant.png",
+        "width": 550,
+        "resizeMode": "contain",
+        "marginLeft": 60,
+        "marginTop": 80        
+      },
+      "children": [],
+      "type": "Image",
+      "parent": "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
+      "rootParentType": "Image",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "353e3c5c-0ed6-42ba-b552-4d6d74d64c50": {
+      "id": "353e3c5c-0ed6-42ba-b552-4d6d74d64c50",
+      "props": {
+        "_x_name": "353e3c5c-0ed6-42ba-b552-4d6d74d64c50",
+        "children": "No Meetings Scheduled",
+        "fontSize": 42,
+        "marginLeft": 60,
+        "marginTop": 0,
+        "fontWeight": "bold"
+      },
+      "children": [],
+      "type": "Text",
+      "parent": "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
+      "rootParentType": "Text",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "2a86b1e8-4ab8-4fd6-8510-4ed041249387": {
+      "id": "2a86b1e8-4ab8-4fd6-8510-4ed041249387",
+      "props": {
+        "_x_name": "2a86b1e8-4ab8-4fd6-8510-4ed041249387",
+        "children": "Until Today, 15:00",
+        "fontSize": 36,
+        "marginLeft": 60,
+        "marginTop": 0
+      },
+      "children": [],
+      "type": "Text",
+      "parent": "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
+      "rootParentType": "Text",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "64cba937-adec-452a-91fb-be195d6af7ca": {
+      "id": "64cba937-adec-452a-91fb-be195d6af7ca",
+      "props": {
+        "_x_name": "64cba937-adec-452a-91fb-be195d6af7ca",
+        "backgroundColor": "#35A177",
+        "flex": 0.3,
+        "marginLeft": 60,
+        "marginRight": 60,
+        "marginBottom": 60,
+        "borderRadius": 10,
+        "justifyContent": "center"
+      },
+      "children": [
+        "9eb6e02d-7a5c-4a70-b323-4a6375e39b71",
+        "9820557e-8ad5-4073-bbbd-cfb9a484d860",
+        "ebfdb6f4-49b0-4e32-b7c2-88e5ece9d594",
+        "c3c1d5ef-0290-4ef4-a470-63e65095e6c3"
+      ],
+      "type": "Container",
+      "parent": "cb0ce3a1-c389-4d43-8460-de469eb31df5",
+      "rootParentType": "Container",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "9eb6e02d-7a5c-4a70-b323-4a6375e39b71": {
+      "id": "9eb6e02d-7a5c-4a70-b323-4a6375e39b71",
+      "props": {
+        "_x_name": "9eb6e02d-7a5c-4a70-b323-4a6375e39b71",
+        "children": "NEXT MEETING",
+        "fontSize": 36,
+        "marginLeft": 40,
+        "marginBottom": 10
+      },
+      "children": [],
+      "type": "Text",
+      "parent": "64cba937-adec-452a-91fb-be195d6af7ca",
+      "rootParentType": "Text",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "9820557e-8ad5-4073-bbbd-cfb9a484d860": {
+      "id": "9820557e-8ad5-4073-bbbd-cfb9a484d860",
+      "props": {
+        "_x_name": "9820557e-8ad5-4073-bbbd-cfb9a484d860",
+        "children": "Today, 15:00 - 17:00",
+        "fontSize": 26,
+        "marginLeft": 40
+      },
+      "children": [],
+      "type": "Text",
+      "parent": "64cba937-adec-452a-91fb-be195d6af7ca",
+      "rootParentType": "Text",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "ebfdb6f4-49b0-4e32-b7c2-88e5ece9d594": {
+      "id": "ebfdb6f4-49b0-4e32-b7c2-88e5ece9d594",
+      "props": {
+        "_x_name": "ebfdb6f4-49b0-4e32-b7c2-88e5ece9d594",
+        "children": "Undisclosed meeting name",
+        "fontSize": 36,
+        "marginLeft": 40,
+        "fontWeight": "bold"
+      },
+      "children": [],
+      "type": "Text",
+      "parent": "64cba937-adec-452a-91fb-be195d6af7ca",
+      "rootParentType": "Text",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "c3c1d5ef-0290-4ef4-a470-63e65095e6c3": {
+      "id": "c3c1d5ef-0290-4ef4-a470-63e65095e6c3",
+      "props": {
+        "_x_name": "c3c1d5ef-0290-4ef4-a470-63e65095e6c3",
+        "children": "Undisclosed User",
+        "fontSize": 30,
+        "marginLeft": 40,
+        "marginTop": 10
+      },
+      "children": [],
+      "type": "Text",
+      "parent": "64cba937-adec-452a-91fb-be195d6af7ca",
+      "rootParentType": "Text",
+      "rules": {},
+      "actionGroup": {}
+    }                                                      
   },
   "login": {
     "root": {
@@ -278,23 +511,101 @@
       "parent": "root",
       "type": "Box",
       "children": [
-        "32f225c6-1914-400c-91ab-c53d56a9b0e0",
-        "d29a1e67-44a2-4122-8158-60951e8b756e",
-        "3570cc56-6e64-4f84-ba6a-e4bff2d85243"
+        "8b861140-ab02-4d4a-b30e-74e21d65e275"
       ],
       "props": {},
       "rules": {},
       "actionGroup": {}
+    },
+    "8b861140-ab02-4d4a-b30e-74e21d65e275": {
+      "id": "8b861140-ab02-4d4a-b30e-74e21d65e275",
+      "props": {
+        "_x_name": "8b861140-ab02-4d4a-b30e-74e21d65e275",
+        "flex": 1,
+        "backgroundColor": "#F5F5F5",
+        "alignItems": "center",
+        "justifyContent": "flex-start"        
+      },
+      "children": [
+        "a26ab2d2-229f-49b9-a006-90be7d77f9de",
+        "32f225c6-1914-400c-91ab-c53d56a9b0e0",
+        "d29a1e67-44a2-4122-8158-60951e8b756e",
+        "3570cc56-6e64-4f84-ba6a-e4bff2d85243"
+      ],
+      "type": "Container",
+      "parent": "root",
+      "rootParentType": "Container",
+      "rules": {},
+      "actionGroup": {}
+    },   
+    "a26ab2d2-229f-49b9-a006-90be7d77f9de": {
+      "id": "a26ab2d2-229f-49b9-a006-90be7d77f9de",
+      "props": {
+        "_x_name": "a26ab2d2-229f-49b9-a006-90be7d77f9de",
+        "children": "Login",
+        "fontSize": 50,
+        "marginTop": 100,
+        "fontWeight": "bold",
+        "color": "#1E232C"
+      },
+      "children": [],
+      "type": "Text",
+      "parent": "8b861140-ab02-4d4a-b30e-74e21d65e275",
+      "rootParentType": "Text",
+      "rules": {},
+      "actionGroup": {}
+    },
+    "32f225c6-1914-400c-91ab-c53d56a9b0e0": {
+      "id": "32f225c6-1914-400c-91ab-c53d56a9b0e0",
+      "props": {
+        "_x_name": "credentials",
+        "_x_onchange": "DefaultValueChange",
+        "backgroundColor": "whiteAlpha.500",
+        "placeholder": "Settings Page Access Code",
+        "marginTop": 100,
+        "width": "80%",
+        "height": 60
+      },
+      "children": [],
+      "type": "Input",
+      "parent": "8b861140-ab02-4d4a-b30e-74e21d65e275",
+      "rootParentType": "Input",
+      "rules": {},
+      "actionGroup": {}
+    }, 
+    "d29a1e67-44a2-4122-8158-60951e8b756e": {
+      "id": "d29a1e67-44a2-4122-8158-60951e8b756e",
+      "props": {
+        "_x_name": "d29a1e67-44a2-4122-8158-60951e8b756e",
+        "children": "Log in",
+        "color": "white",
+        "backgroundColor": "#1E232C",
+        "width": "80%",
+        "height": 60
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "8b861140-ab02-4d4a-b30e-74e21d65e275",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "ExecuteScript",
+          "params": {
+            "script": "const credentials = await ctx.getValue(\"credentials\"); await ctx.setValue(\"credentials\", undefined); const pinCode = await ctx.getExt(\"SecureStorage\").read(\"pinCode\"); if (!pinCode) { ctx.getRouter().navigate(\"settings\"); } else if (!!pinCode && pinCode === credentials) { ctx.getRouter().navigate(\"settings\"); } else { alert(\"Access Denied\"); } "
+          }
+        }
+      }
     },
     "3570cc56-6e64-4f84-ba6a-e4bff2d85243": {
       "id": "3570cc56-6e64-4f84-ba6a-e4bff2d85243",
       "props": {
         "_x_name": "3570cc56-6e64-4f84-ba6a-e4bff2d85243",
         "children": "Back",
-        "variant": "solid",
-        "size": "md",
-        "colorScheme": "messenger",
-        "backgroundColor": "black"
+        "color": "black",
+        "width": "80%",
+        "height": 60,
+        "backgroundColor": "#F5F5F5"
       },
       "children": [],
       "type": "Button",
@@ -309,46 +620,6 @@
           }
         }
       }
-    },     
-    "d29a1e67-44a2-4122-8158-60951e8b756e": {
-      "id": "d29a1e67-44a2-4122-8158-60951e8b756e",
-      "props": {
-        "_x_name": "d29a1e67-44a2-4122-8158-60951e8b756e",
-        "children": "Login",
-        "variant": "solid",
-        "size": "md",
-        "backgroundColor": "green",
-        "color": "white",
-        "w": "50%"
-      },
-      "children": [],
-      "type": "Button",
-      "parent": "root",
-      "rootParentType": "Button",
-      "rules": {},
-      "actionGroup": {
-        "0": {
-          "action": "ExecuteScript",
-          "params": {
-            "script": "const credentials = await ctx.getValue(\"credentials\"); await ctx.setValue(\"credentials\", undefined); const pinCode = await ctx.getExt(\"SecureStorage\").read(\"pinCode\"); if (!!pinCode && pinCode === credentials) { ctx.getRouter().navigate(\"settings\"); } else { alert(\"Invalid Credentials\"); } "
-          }
-        }
-      }
-    },        
-    "32f225c6-1914-400c-91ab-c53d56a9b0e0": {
-      "id": "32f225c6-1914-400c-91ab-c53d56a9b0e0",
-      "props": {
-        "_x_name": "credentials",
-        "_x_onchange": "DefaultValueChange",
-        "backgroundColor": "whiteAlpha.500",
-        "placeholder": "PIN code"
-      },
-      "children": [],
-      "type": "Input",
-      "parent": "root",
-      "rootParentType": "Input",
-      "rules": {},
-      "actionGroup": {}
     }        
   }    
 }

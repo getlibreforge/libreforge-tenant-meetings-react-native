@@ -19,15 +19,15 @@ type ContainerComponentProps = {
 
 const getStyles = (props: any) => StyleSheet.create({
   containerRow: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 24,
+    flex: props.flex || 1,
+    alignItems: props.alignItems || 'flex-start',
+    justifyContent: props.justifyContent || 'flex-start',
+    gap: props.gaps || 24,
     ...props
   },
   image: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: props.justifyContent || 'flex-start',
     width: '100%'
   }
 });
