@@ -220,7 +220,7 @@
       "id": "106c893a-6465-4772-a525-994c37dd8628",
       "props": {
         "_x_name": "106c893a-6465-4772-a525-994c37dd8628",
-        "seconds": "30"
+        "seconds": "60"
       },
       "children": [],
       "type": "Automatic Action",
@@ -256,12 +256,6 @@
           "action": "ExecuteScript",
           "params": {
             "script": "const items = ctx.getInput().items; let isBusy = await ctx.getExt(\"TenantScript\").parseMeetingDetails(ctx, items); const result = []; for (let i=0; i<items.length; i++) { const item = items[i]; result.push({ id: item.id, start: item.start.dateTime, end: item.end.dateTime }); } if (true === isBusy) { await ctx.getExt(\"TenantScript\").setBusy(ctx); } else { await ctx.getExt(\"TenantScript\").setAvailable(ctx); } return { \"events\": result }"
-          }
-        },
-        "5": {
-          "action": "StoreDataAction",
-          "params": {
-            "stateType": "page"
           }
         }
       }
@@ -335,15 +329,15 @@
       "id": "82da913b-bc38-4ca0-ad60-1f95cb5c474b",
       "props": {
         "_x_name": "82da913b-bc38-4ca0-ad60-1f95cb5c474b",
-        "children": "Meeting Room",
+        "children": "${lastUpdatedAt}",
         "fontSize": 32,
         "marginLeft": 60,
         "marginTop": 80
       },
       "children": [],
-      "type": "Text",
+      "type": "VariableText",
       "parent": "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
-      "rootParentType": "Text",
+      "rootParentType": "VariableText",
       "rules": {},
       "actionGroup": {}
     },

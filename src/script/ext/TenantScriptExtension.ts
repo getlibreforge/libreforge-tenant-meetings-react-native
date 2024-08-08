@@ -34,7 +34,7 @@ export class TenantScriptExtension extends AbstractScriptExtension {
 
   async setBusy(ctx: any) {
     await ctx.setPropValue(this.mainContainerUUID, "backgroundImage", "https://getlibreforge.github.io/demo_files/tablet_image_occupied.png"); 
-    await ctx.setPropValue(this.labelImageUUID, "src", "label_occupied.png"); 
+    await ctx.setPropValue(this.labelImageUUID, "src", "label_occupied.png");
     await ctx.setPropValue(this.nextMeetingContainerUUID, "backgroundColor", "#A83434");
   }
 
@@ -47,6 +47,7 @@ export class TenantScriptExtension extends AbstractScriptExtension {
   async parseMeetingDetails(ctx: any, items: any[]): Promise<boolean> {
     let isBusy = false;
 
+    await ctx.setValue("lastUpdatedAt", "Meeting Room");
     await ctx.setValue("currentMeetingSlot", undefined);
     await ctx.setValue("currentMeetingName", 'No Meetings Scheduled');
 
@@ -91,6 +92,9 @@ export class TenantScriptExtension extends AbstractScriptExtension {
         break;
       }
     }
+
+    const lastUpdatedAt = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
+    await ctx.setValue("lastUpdatedAt", `Last Updated at ${lastUpdatedAt}`);
 
     return isBusy;
   }
