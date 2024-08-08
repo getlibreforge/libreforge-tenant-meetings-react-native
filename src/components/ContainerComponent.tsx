@@ -23,7 +23,7 @@ const getStyles = (props: any) => StyleSheet.create({
     alignItems: props.alignItems || 'flex-start',
     justifyContent: props.justifyContent || 'flex-start',
     gap: props.gaps || 24,
-    ...props
+    ...cleanupCustomComponentProps(props, { key: 'key', 'fontSize': 'fontSize' })
   },
   image: {
     flex: 1,

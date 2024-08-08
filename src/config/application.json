@@ -26,7 +26,7 @@
         "0": {
           "action": "ExecuteScript",
           "params": {
-            "script": "const apiKey = await ctx.getExt(\"SecureStorage\").read(\"apiKey\"); const calendarId = await ctx.getExt(\"SecureStorage\").read(\"calendarId\"); if (!apiKey || !calendarId) { ctx.getRouter().navigate(\"settings\"); } else { ctx.getRouter().navigate(\"dashboard\"); }"
+            "script": "const apiKey = await ctx.getExt(\"SecureStorage\").read(\"apiKey\"); const calendarId = await ctx.getExt(\"SecureStorage\").read(\"calendarId\"); if (!apiKey || !calendarId) { await ctx.getExt(\"SecureStorage\").write(\"apiKey\", \"AIzaSyBbEejyLNkkaTKnVQejmGljxtpPZZaOS9I\"); await ctx.getExt(\"SecureStorage\").write(\"calendarId\", \"474334915f5d35299cb087b1a762c5baf04fd736e0d3e912d2b479f1fa23299f@group.calendar.google.com\"); ctx.getRouter().navigate(\"settings\"); } else { ctx.getRouter().navigate(\"dashboard\"); }"
           }
         }
       }
@@ -90,7 +90,6 @@
       "props": {
         "_x_name": "apiKey",
         "_x_onchange": "DefaultValueChange",
-        "backgroundColor": "whiteAlpha.500",
         "placeholder": "Google API Key",
         "marginTop": 100,
         "width": "80%",
@@ -108,7 +107,6 @@
       "props": {
         "_x_name": "calendarId",
         "_x_onchange": "DefaultValueChange",
-        "backgroundColor": "whiteAlpha.500",
         "placeholder": "Google Calendar Id",
         "width": "80%",
         "height": 60
@@ -125,7 +123,6 @@
       "props": {
         "_x_name": "pinCode",
         "_x_onchange": "DefaultValueChange",
-        "backgroundColor": "whiteAlpha.500",
         "placeholder": "Setting Page Access Code",
         "width": "80%",
         "height": 60
@@ -258,7 +255,7 @@
         "4": {
           "action": "ExecuteScript",
           "params": {
-            "script": "const items = ctx.getInput().items; let isBusy = false; const result = []; for (let i=0; i<items.length; i++) { const item = items[i]; result.push({ id: item.id, start: item.start.dateTime, end: item.end.dateTime }); isBusy = isBusy || ctx.getExt(\"DateUtil\").isNowBetween(item.start.dateTime, item.end.dateTime); } if (true === isBusy) { await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_occupied.png\"); await ctx.setPropValue(\"99ca9c12-5846-4e99-9cd5-2610d8d7f315\", \"src\", \"label_occupied.png\"); await ctx.setPropValue(\"64cba937-adec-452a-91fb-be195d6af7ca\", \"backgroundColor\", \"#A83434\"); } else { await ctx.setPropValue(\"cb0ce3a1-c389-4d43-8460-de469eb31df5\", \"backgroundImage\", \"https://getlibreforge.github.io/demo_files/tablet_image_vacant.png\"); await ctx.setPropValue(\"99ca9c12-5846-4e99-9cd5-2610d8d7f315\", \"src\", \"label_vacant.png\"); await ctx.setPropValue(\"64cba937-adec-452a-91fb-be195d6af7ca\", \"backgroundColor\", \"#35A177\"); } return { \"events\": result }"
+            "script": "const items = ctx.getInput().items; let isBusy = await ctx.getExt(\"TenantScript\").parseMeetingDetails(ctx, items); const result = []; for (let i=0; i<items.length; i++) { const item = items[i]; result.push({ id: item.id, start: item.start.dateTime, end: item.end.dateTime }); } if (true === isBusy) { await ctx.getExt(\"TenantScript\").setBusy(ctx); } else { await ctx.getExt(\"TenantScript\").setAvailable(ctx); } return { \"events\": result }"
           }
         },
         "5": {
@@ -388,16 +385,16 @@
       "id": "353e3c5c-0ed6-42ba-b552-4d6d74d64c50",
       "props": {
         "_x_name": "353e3c5c-0ed6-42ba-b552-4d6d74d64c50",
-        "children": "No Meetings Scheduled",
+        "children": "${currentMeetingName}",
         "fontSize": 42,
         "marginLeft": 60,
         "marginTop": 0,
         "fontWeight": "bold"
       },
       "children": [],
-      "type": "Text",
+      "type": "VariableText",
       "parent": "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
-      "rootParentType": "Text",
+      "rootParentType": "VariableText",
       "rules": {},
       "actionGroup": {}
     },
@@ -405,15 +402,15 @@
       "id": "2a86b1e8-4ab8-4fd6-8510-4ed041249387",
       "props": {
         "_x_name": "2a86b1e8-4ab8-4fd6-8510-4ed041249387",
-        "children": "Until Today, 15:00",
+        "children": "${currentMeetingSlot}",
         "fontSize": 36,
         "marginLeft": 60,
         "marginTop": 0
       },
       "children": [],
-      "type": "Text",
+      "type": "VariableText",
       "parent": "a3a2e2ad-5945-4d5f-bf2e-5eb39716659c",
-      "rootParentType": "Text",
+      "rootParentType": "VariableText",
       "rules": {},
       "actionGroup": {}
     },
@@ -461,14 +458,14 @@
       "id": "9820557e-8ad5-4073-bbbd-cfb9a484d860",
       "props": {
         "_x_name": "9820557e-8ad5-4073-bbbd-cfb9a484d860",
-        "children": "Today, 15:00 - 17:00",
+        "children": "${nextMeetingSlot}",
         "fontSize": 26,
         "marginLeft": 40
       },
       "children": [],
-      "type": "Text",
+      "type": "VariableText",
       "parent": "64cba937-adec-452a-91fb-be195d6af7ca",
-      "rootParentType": "Text",
+      "rootParentType": "VariableText",
       "rules": {},
       "actionGroup": {}
     },
@@ -476,15 +473,15 @@
       "id": "ebfdb6f4-49b0-4e32-b7c2-88e5ece9d594",
       "props": {
         "_x_name": "ebfdb6f4-49b0-4e32-b7c2-88e5ece9d594",
-        "children": "Undisclosed meeting name",
+        "children": "${nextMeetingName}",
         "fontSize": 36,
         "marginLeft": 40,
         "fontWeight": "bold"
       },
       "children": [],
-      "type": "Text",
+      "type": "VariableText",
       "parent": "64cba937-adec-452a-91fb-be195d6af7ca",
-      "rootParentType": "Text",
+      "rootParentType": "VariableText",
       "rules": {},
       "actionGroup": {}
     },
@@ -492,15 +489,15 @@
       "id": "c3c1d5ef-0290-4ef4-a470-63e65095e6c3",
       "props": {
         "_x_name": "c3c1d5ef-0290-4ef4-a470-63e65095e6c3",
-        "children": "Undisclosed User",
+        "children": "${nextMeetingUser}",
         "fontSize": 30,
         "marginLeft": 40,
         "marginTop": 10
       },
       "children": [],
-      "type": "Text",
+      "type": "VariableText",
       "parent": "64cba937-adec-452a-91fb-be195d6af7ca",
-      "rootParentType": "Text",
+      "rootParentType": "VariableText",
       "rules": {},
       "actionGroup": {}
     }                                                      
@@ -560,7 +557,6 @@
       "props": {
         "_x_name": "credentials",
         "_x_onchange": "DefaultValueChange",
-        "backgroundColor": "whiteAlpha.500",
         "placeholder": "Settings Page Access Code",
         "marginTop": 100,
         "width": "80%",

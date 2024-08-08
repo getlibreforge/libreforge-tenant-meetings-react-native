@@ -11,7 +11,7 @@ const getStyles = (props: any) => StyleSheet.create({
     // fontWeight: props.fontWeight || 'bold',
     letterSpacing: props.letterSpacing || 0.25,
     color: props.color || 'white',
-    ...props
+    ...cleanupCustomComponentProps(props, { key: 'key' })
   },
 });
 

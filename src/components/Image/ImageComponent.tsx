@@ -7,8 +7,7 @@ import { LocalImageManager } from '../../service/LocalImageManager';
 
 const getStyles = (props: any) => StyleSheet.create({
   image: {
-    fontSize: props.fontSize || 14,
-    ...props
+    ...cleanupCustomComponentProps(props, { key: 'key', 'src': 'src' })
   },
 });
 

@@ -2,7 +2,7 @@ import { forwardRef, useContext } from 'react';
 import { IComponents } from '@libreforge/libreforge-framework-shared';
 import React from 'react';
 import { InversifyContainerProviderContext, useHiddenByComponentRef, usePageStateValueByComponentRef, 
-  AbstractValueChangeAction, SYMBOL_VALUE_CHANGE_ACTION, ProviderFactory, useDispatch, getCurrentPageState } from '@libreforge/libreforge-framework';
+  ProviderFactory, useDispatch, getCurrentPageState, cleanupCustomComponentProps } from '@libreforge/libreforge-framework';
 import { StyleSheet, TextInput } from 'react-native';
 import { useSelector } from "react-redux";
 
@@ -12,7 +12,7 @@ const getStyles = (props: any) => StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    ...props
+    ...cleanupCustomComponentProps(props, { key: 'key', 'placeholder': 'placeholder' })
   },
 });
 
