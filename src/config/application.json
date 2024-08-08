@@ -26,7 +26,7 @@
         "0": {
           "action": "ExecuteScript",
           "params": {
-            "script": "const apiKey = await ctx.getExt(\"SecureStorage\").read(\"apiKey\"); const calendarId = await ctx.getExt(\"SecureStorage\").read(\"calendarId\"); if (!apiKey || !calendarId) { await ctx.getExt(\"SecureStorage\").write(\"apiKey\", \"AIzaSyBbEejyLNkkaTKnVQejmGljxtpPZZaOS9I\"); await ctx.getExt(\"SecureStorage\").write(\"calendarId\", \"474334915f5d35299cb087b1a762c5baf04fd736e0d3e912d2b479f1fa23299f@group.calendar.google.com\"); ctx.getRouter().navigate(\"settings\"); } else { ctx.getRouter().navigate(\"dashboard\"); }"
+            "script": "const apiKey = await ctx.getExt(\"SecureStorage\").read(\"apiKey\"); const calendarId = await ctx.getExt(\"SecureStorage\").read(\"calendarId\"); if (!apiKey || !calendarId) { await ctx.getExt(\"SecureStorage\").write(\"apiKey\", \"AIzaSyBfdKQ8BS8OCCJHT37UmHvqkMgsc49IUeg\"); await ctx.getExt(\"SecureStorage\").write(\"calendarId\", \"4d9312fcaaff247ef9a0dc9cb40d0408cc80e6cdaa621ab2bf00771a217c0089@group.calendar.google.com\"); ctx.getRouter().navigate(\"settings\"); } else { ctx.getRouter().navigate(\"dashboard\"); }"
           }
         }
       }
@@ -58,6 +58,7 @@
         "5c5ef660-49fd-4923-8586-de01df2ff5e0",
         "3eaf7f83-e569-4b9d-9d2f-8b76143bc8a6",
         "debc0f88-5ebd-4a36-86ff-035b7f5ddee9",
+        "d901e725-6cb8-481d-820c-f0748c90efad",
         "67a004e5-68af-4a3d-90ab-6a1be8af1f94",
         "ea45fd84-a2a2-4c91-b287-e9ae25102b41",
         "65e17411-c15c-48f1-b1c5-dff402b23d11"
@@ -134,6 +135,54 @@
       "rules": {},
       "actionGroup": {}
     },
+    "d901e725-6cb8-481d-820c-f0748c90efad": {
+      "id": "d901e725-6cb8-481d-820c-f0748c90efad",
+      "props": {
+        "_x_name": "d901e725-6cb8-481d-820c-f0748c90efad",
+        "children": "Test Connection",
+        "color": "white",
+        "backgroundColor": "#1E232C",
+        "width": "80%",
+        "height": 60
+      },
+      "children": [],
+      "type": "Button",
+      "parent": "35b9658b-c164-4526-ac39-6a132d2ba0ae",
+      "rootParentType": "Button",
+      "rules": {},
+      "actionGroup": {
+        "0": {
+          "action": "ExecuteScript",
+          "params": {
+            "script": "const startOfDay = new Date(); startOfDay.setHours(0); startOfDay.setMinutes(0); startOfDay.setSeconds(0); return { \"startOfDay\": startOfDay.toISOString() }"
+          }
+        }, 
+        "1": {
+          "action": "ExecuteScript",
+          "params": {
+            "script": "const endOfDay = new Date(); endOfDay.setHours(23); endOfDay.setMinutes(59); endOfDay.setSeconds(59); return { \"endOfDay\": endOfDay.toISOString(), ...ctx.getInput() }"
+          }
+        },         
+        "2": {
+          "action": "ExecuteScript",
+          "params": {
+            "script": "const apiKey = await ctx.getValue(\"apiKey\"); const calendarId = await ctx.getValue(\"calendarId\"); return { \"apiKey\": apiKey, \"calendarId\": calendarId, ...ctx.getInput() }"
+          }
+        },        
+        "3": {
+          "action": "Fetch",
+          "params": {
+            "url": "https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&timeMin=${startOfDay}&timeMax=${endOfDay}"
+          }
+        },
+        "4": {
+          "action": "ExecuteScript",
+          "params": {
+            "script": "if (!!ctx.getInput().error) { alert(ctx.getInput().error.message) } else { alert('Successful'); }"
+          }
+        }
+      }
+    },    
     "67a004e5-68af-4a3d-90ab-6a1be8af1f94": {
       "id": "67a004e5-68af-4a3d-90ab-6a1be8af1f94",
       "props": {
