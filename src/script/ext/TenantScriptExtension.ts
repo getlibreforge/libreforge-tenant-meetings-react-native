@@ -74,8 +74,11 @@ export class TenantScriptExtension extends AbstractScriptExtension {
       }
     }
 
-    for (let i=0; i<items.length; i++) {
-      const meeting = items[i];
+    const sortedItems = items.sort((a, b) => a.start.dateTime < b.start.dateTime ? -1 : a.start.dateTime > b.start.dateTime ? 1 : 0);
+
+    for (let i=0; i<sortedItems.length; i++) {
+      const meeting = sortedItems[i];
+
       const startDateTime = meeting.start.dateTime;
       const endDateTime = meeting.end.dateTime; 
       
