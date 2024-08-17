@@ -1,4 +1,6 @@
-export class LocalImageManager {
+import { LocalImageManager } from "@libreforge/libreforge-framework-react-native";
+
+export class CustomLocalImageManager extends LocalImageManager {
 
     private imageOccupied = require('../images/occupied.png');
     private imageVacant = require('../images/vacant.png');
